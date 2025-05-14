@@ -12,6 +12,7 @@ import ErrorPage from './layout/ErrorPage.jsx';
 import Home from './components/Home.jsx';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
+import GptLogin from './components/GptLogin.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/gptLogin",
+        element: <GptLogin></GptLogin>
       }
     ],
   },
