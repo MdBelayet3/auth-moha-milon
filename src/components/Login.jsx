@@ -4,9 +4,9 @@ import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 const Login = () => {
 
     const [showPassword, setShowPassword] = useState(false);
-    
+
     // function to handle login eye btn
-    const handleShowPassword = () =>{
+    const handleShowPassword = () => {
         setShowPassword(!showPassword);
     }
 
@@ -48,6 +48,7 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    <p className='ml-3 mb-3'>New in this website? Go <a className='btn btn-secondary' href="/register">Register</a></p>
                 </div>
             </div>
         </div>

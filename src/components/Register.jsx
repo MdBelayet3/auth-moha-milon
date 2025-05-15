@@ -51,6 +51,7 @@ const Register = () => {
                             <button className="btn btn-secondary">Register</button>
                         </div>
                     </form>
+                    <p className='ml-3 mb-3'>Have an account? Go <a className='btn btn-primary' href="/login">Login</a></p>
                 </div>
             </div>
         </div>

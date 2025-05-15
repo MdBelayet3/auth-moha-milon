@@ -5,10 +5,10 @@ const Header = () => {
 
     // dynamic NavLink
     const navLink = <>
-        <li><NavLink to="/" >Home</NavLink></li>
-        <li><NavLink to="/login" >Login</NavLink></li>
-        <li><NavLink to="/register" >Register</NavLink></li>
-        <li><NavLink to="/gptLogin" >GPT Login</NavLink></li>
+        <li className='text-xl'><NavLink to="/" >Home</NavLink></li>
+        <li className='text-xl'><NavLink to="/login" >Login</NavLink></li>
+        <li className='text-xl'><NavLink to="/register" >Register</NavLink></li>
+        <li className='text-xl'><NavLink to="/gptLogin" >GPT Login</NavLink></li>
     </>
 
     return (
