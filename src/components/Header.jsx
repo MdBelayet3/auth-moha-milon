@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Header = () => {
+
+    // useContext to show login email name and control logout button
+    const { user, logOut } = useContext(AuthContext);
 
     // dynamic NavLink
     const navLink = <>
         <li className='text-xl'><NavLink to="/" >Home</NavLink></li>
         <li className='text-xl'><NavLink to="/login" >Login</NavLink></li>
         <li className='text-xl'><NavLink to="/register" >Register</NavLink></li>
-        <li className='text-xl'><NavLink to="/gptLogin" >GPT Login</NavLink></li>
+         <li className='text-xl'><NavLink to="/gptLogin" >GptLogin</NavLink></li>
     </>
+
+    // function to handle logout
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log("User Logout Successfully");
+            })
+            .catch(error => {
+                console.error(error);
+                alert(error.message);
+            })
+    }
 
     return (
         <div className="navbar bg-base-100">
@@ -47,7 +63,14 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Log out</a>
+                {
+                    user ? <div className='flex items-center gap-3'>
+                        <p className='text-xl'>{user.email}</p>
+                        <a onClick={handleLogOut} className="btn">Log out</a>
+                    </div>
+                        : <NavLink to="/login" className='btn btn-accent'>Login</NavLink>
+
+                }
             </div>
         </div>
     );

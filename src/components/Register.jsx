@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import { AuthContext } from '../provider/AuthProvider';
+import { useNavigate } from 'react-router';
 
 const Register = () => {
 
+    // function for getting createUser from AuthProvider and useState for show password
+    const { createUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
     
     // function to handle show password icon 
     const handleShowPassword = () =>{
@@ -16,6 +22,20 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email, password);
+
+        // function to create user
+        createUser(email, password)
+        .then(result => {
+            e.target.reset();
+            console.log(result.user);
+            alert("User Created Successfully");
+            navigate('/');
+        })
+        .catch(error => {
+            console.error(error);
+            e.target.reset();
+            alert(error.message);
+        })
     }
 
     return (

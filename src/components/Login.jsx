@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import { AuthContext } from '../provider/AuthProvider';
+import { useNavigate } from 'react-router';
 
 const Login = () => {
 
+    // function for getting signInUser from AuthProvider and useState for show password 
+    const {signInUser} = useContext(AuthContext);
+    console.log(signInUser);
     const [showPassword, setShowPassword] = useState(false);
+
+    const navigate = useNavigate();
 
     // function to handle login eye btn
     const handleShowPassword = () => {
@@ -16,6 +23,21 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email, password);
+
+        // function to sign in user
+        signInUser(email,password)
+        .then(result => {
+            console.log(result.user)
+            e.target.reset();
+            alert("User Login Successfully");
+            navigate('/');
+        })
+        .catch(error => {
+            console.error(error);
+            e.target.reset();
+            alert(error.message);
+        })
+
     }
 
     return (
