@@ -14,6 +14,8 @@ import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 import GptLogin from './components/GptLogin.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
+import Orders from './components/Orders.jsx';
+import PrivetRoute from './components/Routes/PrivetRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +38,11 @@ const router = createBrowserRouter([
       {
         path: "/gptLogin",
         element: <GptLogin></GptLogin>
-      }
+      },
+      {
+        path: "/orders",
+        element: <PrivetRoute><Orders></Orders></PrivetRoute>
+      },
     ],
   },
 ]);

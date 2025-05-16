@@ -12,7 +12,8 @@ const Header = () => {
         <li className='text-xl'><NavLink to="/" >Home</NavLink></li>
         <li className='text-xl'><NavLink to="/login" >Login</NavLink></li>
         <li className='text-xl'><NavLink to="/register" >Register</NavLink></li>
-         <li className='text-xl'><NavLink to="/gptLogin" >GptLogin</NavLink></li>
+        <li className='text-xl'><NavLink to="/gptLogin" >GptLogin</NavLink></li>
+        <li className='text-xl'><NavLink to="/orders" >Orders</NavLink></li>
     </>
 
     // function to handle logout
